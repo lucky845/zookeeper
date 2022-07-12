@@ -22,11 +22,11 @@ public class DistributedLockTest {
 
     private static void getLock(DistributedLock lock, String threadName) {
         new Thread(() -> {
-            lock.zkLock();
-            log.info(Thread.currentThread().getName() + "启动，获取到锁");
             try {
+                lock.zkLock();
+                log.info(Thread.currentThread().getName() + "启动，获取到锁");
                 Thread.sleep(5 * 1000);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 log.error("线程sleep异常，异常信息为:{}", e.getMessage());
             }
         }, threadName);
