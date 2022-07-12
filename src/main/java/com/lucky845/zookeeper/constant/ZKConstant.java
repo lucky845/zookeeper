@@ -1,5 +1,7 @@
 package com.lucky845.zookeeper.constant;
 
+import org.apache.curator.retry.ExponentialBackoffRetry;
+
 /**
  * @author lucky845
  * @description zk常量类
@@ -26,5 +28,10 @@ public class ZKConstant {
      * 不存在
      */
     public static final String NOT_EXIST = "not exist";
+
+    /**
+     * 重试
+     */
+    public static final ExponentialBackoffRetry POLICY = new ExponentialBackoffRetry(3000, 3);
 
 }
