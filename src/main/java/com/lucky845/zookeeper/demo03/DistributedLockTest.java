@@ -20,9 +20,9 @@ public class DistributedLockTest {
 
     }
 
-    private static void getLock(DistributedLock lock2, String threadName) {
+    private static void getLock(DistributedLock lock, String threadName) {
         new Thread(() -> {
-            lock2.zkLock();
+            lock.zkLock();
             log.info(Thread.currentThread().getName() + "启动，获取到锁");
             try {
                 Thread.sleep(5 * 1000);
